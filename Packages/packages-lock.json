@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.audiokinetic.wwise.addressables": {
-      "version": "file:E:/Audio_Integ/WwiseUnityAddressables-24.1.5/WwiseUnityAddressables-24.1.5",
+      "version": "file:WwiseUnityAddressables-24.1.5",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {
         "com.unity.addressables": "1.21.20"
       }

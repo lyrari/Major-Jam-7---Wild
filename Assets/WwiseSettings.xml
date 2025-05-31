@@ -18,7 +18,7 @@
   <WaapiPort>8080</WaapiPort>
   <WaapiIP>127.0.0.1</WaapiIP>
   <UseGitRepository>false</UseGitRepository>
-  <PackageSource>E:\Audio_Integ\WwiseUnityAddressables-24.1.5\WwiseUnityAddressables-24.1.5</PackageSource>
+  <PackageSource>E:\Game_Prod\UnityProjects\Major-Jam-7---Wild\Packages\WwiseUnityAddressables-24.1.5</PackageSource>
   <AddressableBankFolder>WwiseData/Bank</AddressableBankFolder>
   <UseCustomBuildScript>false</UseCustomBuildScript>
   <AddressableAssetBuilderPath>Assets/AddressableAssetsData/DataBuilders\BuildScriptWwisePacked.asset</AddressableAssetBuilderPath>
