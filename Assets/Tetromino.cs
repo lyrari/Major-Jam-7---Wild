@@ -1,22 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class Tetromino : MonoBehaviour
 {
-    public List<GameObject> TetrisBlocks;
+    public List<TowerBlock> MyBlocks;
+    [HideInInspector]
+    public TowerBlock.BlockType type1;
+    [HideInInspector]
+    public TowerBlock.BlockType type2;
 
-    public float timeBetweenHorizontalMoves = 0.1f; // Number of times it can move per second in a single direction
-    public float nextDropTime;
+    const float timeBetweenHorizontalMoves = 0.1f; // Number of times it can move per second in a single direction
+
+    float landingLeniencyTime = 0.5f; // Amount of time after landing before it settles.
+    float settleAtTime = float.MaxValue;
+    bool settling;
 
     bool isSettled;
+
     float lastHorizontalMoveTime;
+    TetrisGrid tetrisGridRef;
 
-    float fallSpeed = 1f; // How many blocks it falls per second
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void RollBlockTypes()
     {
+        type1 = (TowerBlock.BlockType) Random.Range(0, 4);
+        type2 = (TowerBlock.BlockType) Random.Range(0, 4);
+    }
+
+    public void Init(TetrisGrid grid)
+    {
+        tetrisGridRef = grid;
+        RollBlockTypes();
         lastHorizontalMoveTime = -999;
+        for (int i = 0; i < MyBlocks.Count; i++)
+        {
+            if (i < MyBlocks.Count / 2)
+            {
+                MyBlocks[i].Init(type1);
+            }
+            else
+            {
+                MyBlocks[i].Init(type2);
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -24,13 +51,51 @@ public class Tetromino : MonoBehaviour
     {
         if (!isSettled)
         {
-            // Auto fall
-            float fallSpeedMultiplier = 1;
-            if (Input.GetKey(KeyCode.S))
+            // Auto fall (if not settling)
+            if (!settling)
             {
-                fallSpeedMultiplier *= 5;
+                float fallSpeedMultiplier = 1;
+                if (Input.GetKey(KeyCode.S))
+                {
+                    fallSpeedMultiplier *= 5;
+                }
+                transform.position += Vector3.down * Time.deltaTime * TetrisGrid.FallSpeed * fallSpeedMultiplier;
+
+                // Check for hit bottom. Round to nearest y if it did.
+                // TODO: Have some leniency period before the block settles?
+                if (AnyBlocksOverlapping())
+                {
+                    StartCoroutine(BlockSettling());
+                    transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
+                    settling = true;
+                    settleAtTime = Time.time + (landingLeniencyTime / fallSpeedMultiplier);
+                }
+            } else
+            {
+                if (Time.time > settleAtTime)
+                {
+                    // Settled.
+                    isSettled = true;
+                    transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
+                    tetrisGridRef.TetrominoLanded(this);
+                } else
+                {
+                    // Check below to see if the object can start falling again.
+                    Vector3 belowCheck = Vector3.down * Time.deltaTime * TetrisGrid.FallSpeed * 5;
+                    transform.position += belowCheck;
+                    if (!AnyBlocksOverlapping())
+                    {
+                        // Stop settling
+                        settleAtTime = float.MaxValue;
+                        settling = false;
+                    } else
+                    {
+                        // Still settling - there is still stuff below this.
+                        transform.position -= belowCheck;
+                    }
+                }
+
             }
-            transform.position += Vector3.down * Time.deltaTime * fallSpeed * fallSpeedMultiplier;
 
             // Player input
             if (Time.time > lastHorizontalMoveTime + timeBetweenHorizontalMoves)
@@ -44,13 +109,44 @@ public class Tetromino : MonoBehaviour
                 {
                     moveUpdate = Vector2.left;
                 }
+
+                if (moveUpdate == Vector3.zero) return;
+
                 transform.position += moveUpdate;
+
+                // If any of the blocks are overlapping another block/boundary, undo this move.
+                if (AnyBlocksOverlapping())
+                {
+                    transform.position -= moveUpdate;
+                    moveUpdate = Vector2.zero;
+                }
+
                 if (moveUpdate != Vector3.zero)
                 {
                     lastHorizontalMoveTime = Time.time;
                 }
             }
-
         }
+    }
+
+    // While block is settling, settle after waiting x seconds.
+    IEnumerator BlockSettling()
+    {
+        yield return new WaitForSeconds(landingLeniencyTime);
+
+
+    }
+
+    bool AnyBlocksOverlapping()
+    {
+        Physics2D.SyncTransforms();
+        foreach (var block in MyBlocks)
+        {
+            if (block.IsOverlappingSomething())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
