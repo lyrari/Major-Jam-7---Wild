@@ -299,6 +299,9 @@ MonoBehaviour:
   - {fileID: 5650995234695816400, guid: 8294f4ddf2fce824e91a02b8ad8c9bea, type: 3}
   - {fileID: 5650995234695816400, guid: 07c96602a66983442ad9b7f50f713133, type: 3}
   - {fileID: 5650995234695816400, guid: 2d8913df851860c46851deab439e122b, type: 3}
+  - {fileID: 5650995234695816400, guid: 8a9b1fc77c7a83a488182efe67dbfadb, type: 3}
+  - {fileID: 5650995234695816400, guid: 976d24ce395162d469eb2bc5bcd2d9bd, type: 3}
+  - {fileID: 5650995234695816400, guid: 8c317b5ac7592c64c8a299a30e3fac7c, type: 3}
   TetrominoParent: {fileID: 1714786276}
   SpawnPositions:
   - {fileID: 1546806714}

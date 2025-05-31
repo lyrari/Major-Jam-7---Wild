@@ -4,6 +4,8 @@ using System.Collections;
 
 public class Tetromino : MonoBehaviour
 {
+    public TowerBlock RotationPoint;
+
     public List<TowerBlock> MyBlocks;
     [HideInInspector]
     public TowerBlock.BlockType type1;
@@ -23,8 +25,15 @@ public class Tetromino : MonoBehaviour
 
     public void RollBlockTypes()
     {
-        type1 = (TowerBlock.BlockType) Random.Range(0, 4);
-        type2 = (TowerBlock.BlockType) Random.Range(0, 4);
+        type1 = (TowerBlock.BlockType)Random.Range(0, 4);
+        if (MyBlocks.Count <= 3)
+        {
+            type2 = type1;
+        } else
+        {
+            type2 = (TowerBlock.BlockType)Random.Range(0, 4);
+        }
+
     }
 
     public void Init(TetrisGrid grid)
@@ -99,6 +108,19 @@ public class Tetromino : MonoBehaviour
                         transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
                         tetrisGridRef.TetrominoLanded(this);
                     }
+                }
+            }
+
+            // Rotation
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("Rotate");
+                transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), 90);
+                if (AnyBlocksOverlapping())
+                {
+                    // Failed - rotate back
+                    Debug.Log("UnRotate");
+                    transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), -90);
                 }
             }
 
