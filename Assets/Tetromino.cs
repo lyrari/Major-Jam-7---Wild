@@ -19,6 +19,7 @@ public class Tetromino : MonoBehaviour
     bool settling;
 
     bool isSettled;
+    bool uiOnly;
 
     float lastHorizontalMoveTime;
     TetrisGrid tetrisGridRef;
@@ -36,10 +37,51 @@ public class Tetromino : MonoBehaviour
 
     }
 
-    public void Init(TetrisGrid grid)
+    // Inits a Tetromino's type only and sets its layer to UI layer.
+    public void InitUITetromino()
+    {
+        transform.localPosition = Vector3.zero;
+        uiOnly = true;
+        RollBlockTypes();
+        for (int i = 0; i < MyBlocks.Count; i++)
+        {
+            if (i < MyBlocks.Count / 2)
+            {
+                MyBlocks[i].Init(type1);
+            }
+            else
+            {
+                MyBlocks[i].Init(type2);
+            }
+        }
+        UpdateLayer("UI");
+    }
+
+    void UpdateLayer(string layerName)
+    {
+        gameObject.layer = LayerMask.NameToLayer(layerName);
+        foreach (Transform t in transform.GetComponentsInChildren<Transform>())
+        {
+            t.gameObject.layer = LayerMask.NameToLayer(layerName);
+        }
+    }
+
+    public void Init(TetrisGrid grid, Tetromino data = null)
     {
         tetrisGridRef = grid;
-        RollBlockTypes();
+        uiOnly = false;
+        UpdateLayer("Tetromino");
+
+        // If another tetromino is given - copy its types.
+        if (data != null)
+        {
+            type1 = data.type1;
+            type2 = data.type2;
+        } else
+        {
+            RollBlockTypes();
+        }
+
         lastHorizontalMoveTime = -999;
         for (int i = 0; i < MyBlocks.Count; i++)
         {
@@ -65,6 +107,7 @@ public class Tetromino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (uiOnly) return;
         if (!isSettled)
         {
             // Auto fall (if not settling)
