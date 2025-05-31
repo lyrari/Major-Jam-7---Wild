@@ -55,6 +55,13 @@ public class Tetromino : MonoBehaviour
             }
         }
         UpdateLayer("UI");
+
+        // Start with random rotation between 0 and 3 times
+        int numRotations = Random.Range(0, 4);
+        for (int i = 0; i < numRotations; i++)
+        {
+            Rotate(true);
+        }
     }
 
     void UpdateLayer(string layerName)
@@ -94,14 +101,6 @@ public class Tetromino : MonoBehaviour
                 MyBlocks[i].Init(type2);
             }
         }
-
-        // Start with random rotation between 0 and 3 times
-        int numRotations = Random.Range(0, 4);
-        for (int i = 0; i < numRotations; i++)
-        {
-            Rotate(true);
-        }
-
     }
 
     // Update is called once per frame

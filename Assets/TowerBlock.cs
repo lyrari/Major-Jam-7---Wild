@@ -17,6 +17,7 @@ public class TowerBlock : MonoBehaviour
 
     [System.Serializable]
     public enum BlockType {
+        None = -1,
         Armor,
         Bomb,
         Gun,

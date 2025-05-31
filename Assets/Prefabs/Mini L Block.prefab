@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2718345435645193818}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   - {fileID: 8341077772729367144}
   - {fileID: 4234330100987705166}
   - {fileID: 8617255714998582206}
-  type1: 3
-  type2: 3
+  type1: 1
+  type2: 1
 --- !u!1001 &4284333561526707536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,11 +64,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.b
-      value: 0.015686275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.g
-      value: 0.92156863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.r
@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238940524284862264, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_BlockType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6132748325403860429, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_LocalPosition.x
@@ -161,11 +161,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.b
-      value: 0.015686275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.g
-      value: 0.92156863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.r
@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238940524284862264, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_BlockType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6132748325403860429, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,11 +258,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.b
-      value: 0.015686275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.g
-      value: 0.92156863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674337010059543941, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_Color.r
@@ -282,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238940524284862264, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_BlockType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6132748325403860429, guid: 8403f94d70ade114584883c8d8ba6750, type: 3}
       propertyPath: m_LocalPosition.x
