@@ -241,7 +241,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1047568440}
   - component: {fileID: 1047568439}
-  - component: {fileID: 1047568438}
   - component: {fileID: 1047568441}
   m_Layer: 0
   m_Name: WwiseGlobal
@@ -250,18 +249,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1047568438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047568437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed39f2b237e573f4f85990bb5d1440ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1047568439
 MonoBehaviour:
   m_ObjectHideFlags: 0
