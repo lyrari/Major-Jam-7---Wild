@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.audiokinetic.wwise.addressables": "file:E:/Audio_Integ/WwiseUnityAddressables-24.1.5/WwiseUnityAddressables-24.1.5",
+    "com.audiokinetic.wwise.addressables": "file:../Assets/WwiseUnityAddressables-24.1.5",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.36",
