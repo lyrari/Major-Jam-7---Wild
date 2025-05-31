@@ -68,33 +68,38 @@ public class Tetromino : MonoBehaviour
                     StartCoroutine(BlockSettling());
                     transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
                     settling = true;
-                    settleAtTime = Time.time + (landingLeniencyTime / fallSpeedMultiplier);
+                    settleAtTime = Time.time + landingLeniencyTime;
                 }
             } else
             {
-                if (Time.time > settleAtTime)
+                // Settling, Check below to see if the object can start falling again.
+                Vector3 belowCheck = Vector3.down * Time.deltaTime * TetrisGrid.FallSpeed * 5;
+                transform.position += belowCheck;
+                if (!AnyBlocksOverlapping())
                 {
-                    // Settled.
-                    isSettled = true;
-                    transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
-                    tetrisGridRef.TetrominoLanded(this);
-                } else
+                    // Stop settling
+                    settleAtTime = float.MaxValue;
+                    settling = false;
+                    
+                }
+                else
                 {
-                    // Check below to see if the object can start falling again.
-                    Vector3 belowCheck = Vector3.down * Time.deltaTime * TetrisGrid.FallSpeed * 5;
-                    transform.position += belowCheck;
-                    if (!AnyBlocksOverlapping())
+                    // Still settling - there is still stuff below this.
+                    transform.position -= belowCheck;
+
+                    if (Input.GetKey(KeyCode.S))
                     {
-                        // Stop settling
-                        settleAtTime = float.MaxValue;
-                        settling = false;
-                    } else
+                        settleAtTime -= Time.deltaTime * 5;
+                    }
+
+                    if (Time.time > settleAtTime)
                     {
-                        // Still settling - there is still stuff below this.
-                        transform.position -= belowCheck;
+                        // Settled.
+                        isSettled = true;
+                        transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
+                        tetrisGridRef.TetrominoLanded(this);
                     }
                 }
-
             }
 
             // Player input
