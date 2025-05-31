@@ -4,6 +4,8 @@ using System.Collections;
 
 public class Tetromino : MonoBehaviour
 {
+    public TowerBlock RotationPoint;
+
     public List<TowerBlock> MyBlocks;
     [HideInInspector]
     public TowerBlock.BlockType type1;
@@ -23,8 +25,15 @@ public class Tetromino : MonoBehaviour
 
     public void RollBlockTypes()
     {
-        type1 = (TowerBlock.BlockType) Random.Range(0, 4);
-        type2 = (TowerBlock.BlockType) Random.Range(0, 4);
+        type1 = (TowerBlock.BlockType)Random.Range(0, 4);
+        if (MyBlocks.Count <= 3)
+        {
+            type2 = type1;
+        } else
+        {
+            type2 = (TowerBlock.BlockType)Random.Range(0, 4);
+        }
+
     }
 
     public void Init(TetrisGrid grid)
@@ -42,6 +51,13 @@ public class Tetromino : MonoBehaviour
             {
                 MyBlocks[i].Init(type2);
             }
+        }
+
+        // Start with random rotation between 0 and 3 times
+        int numRotations = Random.Range(0, 4);
+        for (int i = 0; i < numRotations; i++)
+        {
+            Rotate(true);
         }
 
     }
@@ -102,6 +118,15 @@ public class Tetromino : MonoBehaviour
                 }
             }
 
+            // Rotation
+            // TODO: Attempt to rotate and move left/right if the original rotation doesn't work
+            bool rotateLeft = Input.GetKeyDown(KeyCode.Q);
+            bool rotateRight = Input.GetKeyDown(KeyCode.E);
+            if (rotateLeft || rotateRight)
+            {
+                Rotate(rotateRight);
+            }
+
             // Player input
             if (Time.time > lastHorizontalMoveTime + timeBetweenHorizontalMoves)
             {
@@ -129,6 +154,31 @@ public class Tetromino : MonoBehaviour
                 if (moveUpdate != Vector3.zero)
                 {
                     lastHorizontalMoveTime = Time.time;
+                }
+            }
+        }
+    }
+
+    public void Rotate(bool rotateRight)
+    {
+        float rotationDirectionMult = 1;
+        if (rotateRight)
+            rotationDirectionMult = -1;
+
+        transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), 90 * rotationDirectionMult);
+        if (AnyBlocksOverlapping())
+        {
+            // Try moving left and right as well
+            transform.position += Vector3.right;
+            if (AnyBlocksOverlapping())
+            {
+                // Still overlapping, try left
+                transform.position += 2 * Vector3.left;
+                if (AnyBlocksOverlapping())
+                {
+                    // Both failed - move back to start and rotate back
+                    transform.position += Vector3.right;
+                    transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), -90 * rotationDirectionMult);
                 }
             }
         }
