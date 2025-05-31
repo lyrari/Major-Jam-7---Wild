@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3213ed949058a0d47826c5f3bd819e6d, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ea2e24aebd56d4ba18d1219b197282, type: 3}
   m_Name: GameplayBank
   m_EditorClassIdentifier: 
   m_dataPerPlatformList:
@@ -50,11 +50,11 @@ MonoBehaviour:
     LocalizedStreamingMediaValues:
       localizedMediaList: []
   currentPlatformAssets:
-    WwisePlatform: Windows
+    WwisePlatform: Web
     LocalizedBankKeys:
     - SFX
     LocalizedBanksValues:
-    - m_AssetGUID: c0427e312506a1344baaced61cf97153
+    - m_AssetGUID: 6b0b6c98e3c81e14089d0a802c0053dc
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 

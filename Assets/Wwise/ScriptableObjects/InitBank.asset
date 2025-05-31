@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9289c9e765809ec408877f7c7b8d296d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dec10e7e5c5f52448f422d3d4f5ff05, type: 3}
   m_Name: InitBank
   m_EditorClassIdentifier: 
   AddressableBank: {fileID: 11400000, guid: 821088637849fc747b0c9b2470fb4e95, type: 2}
