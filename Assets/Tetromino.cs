@@ -53,6 +53,13 @@ public class Tetromino : MonoBehaviour
             }
         }
 
+        // Start with random rotation between 0 and 3 times
+        int numRotations = Random.Range(0, 4);
+        for (int i = 0; i < numRotations; i++)
+        {
+            Rotate(true);
+        }
+
     }
 
     // Update is called once per frame
@@ -112,16 +119,12 @@ public class Tetromino : MonoBehaviour
             }
 
             // Rotation
-            if (Input.GetKeyDown(KeyCode.Q))
+            // TODO: Attempt to rotate and move left/right if the original rotation doesn't work
+            bool rotateLeft = Input.GetKeyDown(KeyCode.Q);
+            bool rotateRight = Input.GetKeyDown(KeyCode.E);
+            if (rotateLeft || rotateRight)
             {
-                Debug.Log("Rotate");
-                transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), 90);
-                if (AnyBlocksOverlapping())
-                {
-                    // Failed - rotate back
-                    Debug.Log("UnRotate");
-                    transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), -90);
-                }
+                Rotate(rotateRight);
             }
 
             // Player input
@@ -151,6 +154,31 @@ public class Tetromino : MonoBehaviour
                 if (moveUpdate != Vector3.zero)
                 {
                     lastHorizontalMoveTime = Time.time;
+                }
+            }
+        }
+    }
+
+    public void Rotate(bool rotateRight)
+    {
+        float rotationDirectionMult = 1;
+        if (rotateRight)
+            rotationDirectionMult = -1;
+
+        transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), 90 * rotationDirectionMult);
+        if (AnyBlocksOverlapping())
+        {
+            // Try moving left and right as well
+            transform.position += Vector3.right;
+            if (AnyBlocksOverlapping())
+            {
+                // Still overlapping, try left
+                transform.position += 2 * Vector3.left;
+                if (AnyBlocksOverlapping())
+                {
+                    // Both failed - move back to start and rotate back
+                    transform.position += Vector3.right;
+                    transform.RotateAround(RotationPoint.transform.position, new Vector3(0, 0, 1), -90 * rotationDirectionMult);
                 }
             }
         }

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cf20e6a029d0e45b3bc646d46778da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationPoint: {fileID: 8341077772729367144}
   MyBlocks:
   - {fileID: 8341077772729367144}
   - {fileID: 4234330100987705166}
