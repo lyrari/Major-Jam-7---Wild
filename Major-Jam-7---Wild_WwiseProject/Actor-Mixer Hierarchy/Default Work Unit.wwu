@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AF178037-AA42-4963-88D6-C8289423B312}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{AF178037-AA42-4963-88D6-C8289423B312}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="roundWin" ID="{F467849B-BC90-41E9-812F-9758D38F3460}" ShortID="938886627">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D84550CA-9259-439C-992D-ED3A7DA89621}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8936D375-B357-4BCF-BE72-E9BD09E4F942}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="roundWin" ID="{5ECDEF26-5A3C-4A82-81AC-1BAF6BE09490}">
+							<Language>SFX</Language>
+							<AudioFile>roundWin.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="547148760"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="roundWin" ID="{5ECDEF26-5A3C-4A82-81AC-1BAF6BE09490}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="154">
+	<RootPaths>
+		<ProjectRoot>../../../../Major-Jam-7---Wild_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../../Major-Jam-7---Wild_WwiseProject/.cache</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../../Major-Jam-7---Wild_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{E8C73C05-9AC5-A17E-EA11-491BBCB2A45E}">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" ObjectPath="\Audio Devices\Default Work Unit\No_Output" GUID="{2E613972-53EA-46DE-99AC-FE51BD61A890}" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" ObjectPath="\Audio Devices\Default Work Unit\System" GUID="{1A55317E-01AF-4C78-963C-258B74D95BF4}" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus" GUID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="1822725939" Type="User" GUID="{BADDFC9E-594F-4B00-96D2-80FBC57C8DD8}" Language="SFX" Hash="{43104F61-9F41-1E5F-209D-B32FD8E66A12}">
+			<ObjectPath>\SoundBanks\Default Work Unit\GameplayBank</ObjectPath>
+			<ShortName>GameplayBank</ShortName>
+			<Path>GameplayBank.bnk</Path>
+			<Media>
+				<File Id="547148760" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roundWin.wav</ShortName>
+					<CachePath>75/{75806842-4853-37A6-00E7-F4A9B702A5A9}.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="38624190" Name="testSound" ObjectPath="\Events\Default Work Unit\testSound" GUID="{E072159B-3CEC-40B3-AB48-F5ED66FB2E73}" DurationType="OneShot" DurationMin="2.6" DurationMax="2.6">
+					<MediaRefs>
+						<MediaRef Id="547148760"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{197156E4-4B79-EBCA-A302-7C8248D73380}</FileHash>
+</SoundBanksInfo>

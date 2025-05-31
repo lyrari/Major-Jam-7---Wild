@@ -70,3 +70,56 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+logrunSetup.txt
+
+## ---------------- ##
+##   WWise stuff    ##
+## ---------------- ##
+
+# Wwise Project
+Major-Jam-7---Wild_WwiseProject/.cache/
+Major-Jam-7---Wild_WwiseProject/*.validationcache
+Major-Jam-7---Wild_WwiseProject/*.wsettings
+Major-Jam-7---Wild_WwiseProject/*.prof
+Major-Jam-7---Wild_WwiseProject/**/*.akd
+
+# XML Conflicts
+#IncrementalSoundBankData.xml
+#PluginInfo.xml
+#SoundbanksInfo.xml
+
+# WWise Picker (editor)
+# from https://www.audiokinetic.com/library/edge/?source=Unity&id=unity__troubleshooting.html
+# >> Do not keep AkWwiseProjectData.asset under version control! 
+# >> This is a temporary cache file for the Wwise project data, 
+# >> so as to avoid having the Wwise Picker continuously parse the Work Unit files.
+Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+
+# notes:
+# 1) if any other files go in Assets/Wwise/Editor/ProjectData/ besides AkWwiseProjectData.asset*,
+#    then don't ignore Assets/Wwise/Editor/ProjectData.meta. If AkWwiseProjectData.asset is the only item in there,
+#    then, it's OK to ignore this file.
+# 
+# Assets/Wwise/Editor/ProjectData.meta
+
+# Wwise Originals (If Only Contributor)
+Major-Jam-7---Wild_WwiseProject/Originals/
+
+# build stuff (unsure?)
+# Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+
+# Plugin Annoyance
+Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/
+Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/
+Assets/Wwise/API/Runtime/Plugins/Mac/DSP/
+Assets/Wwise/API/Runtime/Plugins/WebGL/DSP/
+!*/AkSoundEngineDLL.pdb
+!*/AkSoundEngineDLL.pdb.meta
+
+# temp install files
+WwiseUnityIntegration_*_Src.zip
+
+## --------------- ##
+## End WWise Stuff ##
+## --------------- ##

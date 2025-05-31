@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	38624190	testSound			\Default Work Unit\testSound	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	547148760	roundWin	E:\Game_Prod\UnityProjects\Major-Jam-7---Wild\Major-Jam-7---Wild_WwiseProject\.cache\75\{75806842-4853-37A6-00E7-F4A9B702A5A9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\roundWin		499296
+

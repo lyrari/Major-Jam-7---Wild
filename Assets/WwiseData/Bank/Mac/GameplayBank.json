@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1822725939",
+    "Type": "User",
+    "GUID": "{BADDFC9E-594F-4B00-96D2-80FBC57C8DD8}",
+    "Language": "SFX",
+    "Hash": "{43104F61-9F41-1E5F-209D-B32FD8E66A12}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\GameplayBank",
+    "ShortName": "GameplayBank",
+    "Path": "GameplayBank.bnk",
+    "Media": [
+     {
+      "Id": "547148760",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "roundWin.wav",
+      "CachePath": "75/{75806842-4853-37A6-00E7-F4A9B702A5A9}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "38624190",
+      "Name": "testSound",
+      "ObjectPath": "\\Events\\Default Work Unit\\testSound",
+      "GUID": "{E072159B-3CEC-40B3-AB48-F5ED66FB2E73}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.6",
+      "DurationMax": "2.6",
+      "MediaRefs": [
+       {
+        "Id": "547148760"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{C9862DF3-DE40-ABCD-7B2D-CD11052478D9}"
+ }
+}
